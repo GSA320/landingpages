@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tio marílio comida italiana</title>
+    <style>
+        body{
+            background-image: url(https://img.freepik.com/fotos-premium/fundo-de-textura-de-tecido-vermelho_59045-157.jpg?w=2000);
+        }
+        *{
+            margin:0;
+            padding:0;
+         }
+        .slider{
+            display: block;
+            height:230px;
+            width:600px;
+            margin: auto;
+            margin-top:50px;
+            margin-right:50px;
+            position:relative;
+            float: right;
+        }
+        .slider li{
+            list-style-type: none;
+            position:absolute;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.712);
+            border-radius: 5px;
+        }
+        .slider img{
+            border-radius: 5px;
+            margin:auto;
+            height:100%;
+            width:100%;
+            vertical-align: top;
+        }
+        .slider input{
+            display: none;
+        }
+        .slider label{
+            background-color: #000;
+            bottom:10px;
+            cursor:pointer;
+            display: block;
+            height:10px;
+            width:10px;
+            position: absolute;
+            z-index: 10;
+            border: 1px solid #fff;
+            border-radius:100px;
+        }
+        .slider li:nth-child(1) label{
+            left:10px;
+        }
+        .slider li:nth-child(2) label{
+            left:40px;
+        }
+        .slider li:nth-child(3) label{
+            left:70px;
+        }
+        .slider img{
+            opacity: 0;
+            visibility: hidden;
+        }
+        .slider li input:checked ~ img{
+            opacity: 1;
+            visibility: visible;
+            transition: 2s all;
+        }
+
+        
+/* Estilizar a nav da classe menu */
+.menu{
+    width: 100%;
+    height: 50px;
+    background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilizar as listas ul e li */
+
+.menu ul{
+    list-style: none;
+    position: relative;
+}
+
+.menu ul li{
+    width:150px;
+    float:left;
+}
+.menu a{
+    padding:15px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: #222;
+    color:#fff;
+}
+.menu ul ul{
+    position:absolute;
+    visibility: hidden;
+}
+.menu ul li:hover ul{
+    visibility: visible;
+}
+.menu a:hover{
+    background-color: #e9de49;
+    color:rgb(85, 85, 85);
+}
+.menu ul ul li{
+    float:none;
+    border-bottom: 1px solid rgba(204, 204, 204, 0);
+}
+.menu ul ul li a{
+    background-color: rgb(151, 39, 39);
+}
+
+label[for="bt_menu"]{
+    padding:5px;
+    background-color: #222;
+    color:#fff;
+    text-align: center;
+    cursor: pointer;
+    height:50px;
+    display: none;
+    padding-top:15px;
+    box-sizing: border-box;
+}
+#bt_menu{
+    display:none;
+}
+
+@media screen and (max-width: 800px){
+    label[for="bt_menu"]{
+        display: block;
+    }
+    .menu{
+        margin-top:5px;
+        margin-left:-100%;
+        transition: all .4s;
+    }
+    .menu ul li{
+        width:100%;
+        float:left;
+    }
+    #bt_menu:checked ~ .menu{
+        margin-left:0;
+    }
+    .menu ul ul{
+        position: static;
+        max-height: 0;
+        transition: all 2s;
+        overflow: hidden;
+    }
+    .menu ul li:hover ul{
+        height:auto;
+        max-height: 200px;
+    }
+}
+
+.menu ul{
+    z-index: 10;
+}
+.menu ul li img{
+    margin-top: 6px;
+    margin-left: 25px;
+    width: 127px;
+}
+.texte{
+    font-family: Helvetica, sans-serif;
+    padding: 20px;
+    float: left;
+    margin-top: 50px;
+    background-color: #222;
+    color: rgb(250, 225, 83);
+    margin-left:-90px;
+    border-radius: 5px;
+    width: 470px;
+    height: 360px;
+    line-height: 23px;
+}
+.gallery{
+    margin-top: 20px;
+}
+.gallery-img{  
+    width:100%;
+	height:274px;
+	object-fit: cover;
+    border-radius: 3px;
+}
+.selo{
+    width: 125px;
+    margin-top: 370px;
+    margin-left: 335px;
+    position: absolute;
+    z-index: 10;
+    box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.308);
+    border-radius: 60px;
+}
+.forms{
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+input {
+    margin-top: 5px;
+    width: 73%;
+    height: 35px;
+    font-size: 16px;
+    box-shadow: inset 0 0 1px 1px rgb(241, 211, 35);
+    background-color:  #222;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.a{
+    background-color: #e9de49;
+}
+footer{
+    padding-top: 35px;
+    width: 100%;
+    height: 50px;
+    background-color:  #222;
+    margin-top: 25px;
+    float:left;
+    color: #e9de49;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    display: block;
+}
+.card{
+    background-color: #e9de49;
+    width: 560px;
+    margin-left: -145px;
+    margin-top: 50px;
+    height: 250px;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    padding: 20px;
+    float: left;
+    margin-top: 50px;
+    border-radius: 5px;
+    line-height: 23px;
+}
+h4{
+    margin-bottom: 13px;
+}
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="bt_menu" />
+    <label for="bt_menu">&#9776;</label>
+    <nav class="menu">
+        <ul>
+            
+            <li><img  src="https://www.logomaker.com/api/main/images/1j+ojFVDOMkX9Wytexe43D6kh...aFqhJMkBrOwXs1M3EMoAJtliYsj...Jr9PU9" alt="logo"></li>
+            <li><a href="#" class="xd">Home</a></li>
+            <li><a href="#" class="xd">Sobre</a>
+                <ul>
+                    <li><a href="#">Local</a></li>
+                    <li><a href="#">História</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="xd">Contato</a>
+                <ul>
+                    <li><a href="#">Telefone</a></li>
+                    <li><a href="#">E-mail</a></li>
+                    <li><a href="#">Whatsapp</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <img class="selo" src="https://guiabrasileiroemisrael.com.br/wp-content/uploads/2017/06/selo-de-qualidade-garantida.png" alt="">    
+
+    <ul class="texte">
+        Conheça nossos pratos principais e ganhe um combo!!! 
+        Comprando nossa lasagnha bolonhesa você ganha um vinho tinto seco
+        para saborear no local.
+        <ul class="gallery"><img class="gallery-img" src="https://www.segs.com.br/media/k2/items/cache/cf21b1bec873382453b8edfc9b133927_XL.jpg"/></ul>
+
+    </ul>
+    
+    <ul class="slider">
+        <li>
+            <input type="radio" id="slide1" name="slide" checked />
+            <label for="slide1"></label>
+            <img src="https://www.sabornamesa.com.br/media/k2/items/cache/d30ee1ca9e879a8474cdf38bba06fa06_XL.jpg" style="width:600px;height:400px;" />
+        </li>
+        <li>
+            <input type="radio" id="slide2" name="slide"  />
+            <label for="slide2"></label>
+            <img src="https://cdn.sistemawbuy.com.br/arquivos/ec7521ecf396ca8e2e0faab3285d2a29/produtos/GO4JU1/salame-italiano-60416dd27e66d.jpg" style="width:600px;height:400px;" />
+        </li>
+        <li>
+            <input type="radio" id="slide3" name="slide"  />
+            <label for="slide3"></label>
+            <img src="https://receitatodahora.com.br/wp-content/uploads/2022/03/polenta-frita-de-lanchonete.jpg" style="width:600px;height:400px;" />
+        </li>
+    </ul>
+    <section class="forms">
+        <h2 style="color: #e9de49; margin-top: 25px;">Cadastre-se e receba novidades</h2>
+        <form action="" method="post">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="text" name="telefone" placeholder="Telefone">
+            <input type="submit" name="enviar" value="Enviar" class="a">
+        </form>
+    </section>
+    <div class="card"><h4>Horário de funcionamento das 11:00 as 23:59, venha nos visitar!</h4><iframe src="https://www.google.com/maps/d/embed?mid=1frnONM1rrzYG1AXL-CPkuCKZkbU&amp;hl=pt_BR&amp;ehbc=2E312F" width="100%" height="85%"></iframe></div>
+    <footer>Copyright by GSA</footer>
+</body>
+</html>
